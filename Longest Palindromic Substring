@@ -1,0 +1,20 @@
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        cond: bool = True
+        big: int = 0
+        bigs: str = ""
+        while cond:
+            save: str = ""
+            ss = len(s)
+            for index,x in enumerate(s):
+                save += x
+                rev = save[::-1]
+                if rev == save and index+1 > big:
+                    big = index + 1
+                    bigs = rev
+            if ss > big:
+                s = s[1:]
+            else:
+                cond = False
+        return(bigs)
+                
