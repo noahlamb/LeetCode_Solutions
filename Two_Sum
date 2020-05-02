@@ -1,0 +1,16 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        store: List[int] = list(nums)
+        store.sort()
+        count: int = 0
+        for x in store:
+            store[count] = target + 1
+            if (target - x) in store:
+                ix = x
+                iy = target - x
+                break
+            count += 1
+        sol1 = nums.index(ix)
+        nums[sol1] = target + 1
+        sol2 = nums.index(iy)
+        return([sol1,sol2])
