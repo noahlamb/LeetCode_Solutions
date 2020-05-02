@@ -1,0 +1,16 @@
+    def lengthOfLongestSubstring(self, s: str,long:int = 0 ) -> int:
+        long: int = 0
+        lst: int = 0
+        big: int = 0
+        start:int = 0
+        dct = {}
+        for index, i in enumerate(s):
+            if i in dct and dct[i] >= start:
+                long = max(long,big)
+                big = index - dct[i]
+                start = dct[i] + 1
+            else:
+                big += 1
+            dct[i] = index
+        return(max(long,big))
+        
