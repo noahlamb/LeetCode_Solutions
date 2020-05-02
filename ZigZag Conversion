@@ -1,0 +1,17 @@
+class Solution:
+    def convert(self, s: str, numRows: int) -> str:
+        sol: str = ""
+        cycle: int = numRows*2-2
+        l: int = len(s)
+        if numRows >= l:
+            return(s)
+        else:
+            if cycle == 0:
+                cycle = 1
+            for x in range(numRows):
+                for index, y in enumerate(s):
+                    if index % cycle == x or index % cycle == cycle - x:
+                        sol += y
+
+            return(sol)
+                
